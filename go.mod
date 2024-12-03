@@ -11,7 +11,6 @@ require (
 	github.com/kubeflow/model-registry v0.2.7-alpha.0.20241203133658-3eb4e9c050c4
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.30.0
-	github.com/opendatahub-io/model-registry v0.1.1
 	github.com/openshift/api v3.9.0+incompatible
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus-operator/prometheus-operator/pkg/apis/monitoring v0.64.1
