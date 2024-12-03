@@ -107,7 +107,6 @@ func main() {
 	var enableLeaderElection bool
 	var monitoringNS string
 	var probeAddr string
-	var modelregistriesNamespace string
 	var enableMRInferenceServiceReconcile bool
 
 	flag.StringVar(&metricsAddr, "metrics-bind-address", ":8080", "The address the metric endpoint binds to.")
@@ -119,7 +118,6 @@ func main() {
 		"The Namespace where the monitoring stack's Prometheus resides.")
 	flag.BoolVar(&enableMRInferenceServiceReconcile, "model-registry-inference-reconcile", false,
 		"Enable model registry inference service reconciliation. ")
-	flag.StringVar(&modelregistriesNamespace, "model-registries-namespace", "", "Namespace where model registries are deployed.")
 
 	opts := zap.Options{
 		Development: true,
@@ -204,7 +202,6 @@ func main() {
 			ctrl.Log.WithName("controllers").WithName("ModelRegistryInferenceService"),
 			getEnvAsBool("MR_SKIP_TLS_VERIFY", false),
 			ctrl.GetConfigOrDie().BearerToken,
-			modelregistriesNamespace,
 		)).SetupWithManager(mgr); err != nil {
 			setupLog.Error(err, "unable to create controller", "controller", "ModelRegistryInferenceServiceReconciler")
 			os.Exit(1)

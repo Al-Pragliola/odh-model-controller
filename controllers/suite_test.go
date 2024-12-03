@@ -190,7 +190,6 @@ var _ = BeforeSuite(func() {
 		ctrl.Log.WithName("controllers").WithName("ModelRegistry-InferenceService-Controller"),
 		false,
 		"",
-		"",
 	)).SetupWithManager(mgr)
 	Expect(err).ToNot(HaveOccurred())
 
